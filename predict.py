@@ -26,5 +26,5 @@ class Predictor(cog.Predictor):
         #self.Gs = Gs
         results_dir = "prova"
         tflib.init_tf()
-        os.makedirs(result_dir, exist_ok=True)
-        draw_truncation_trick_figure(os.path.join(config.result_dir, 'truncation-trick.png'), load_Gs(model_place), w=128, h=128, seeds=[np.random.randint(0,100000),np.random.randint(0,100000), np.random.randint(0,100000), np.random.randint(0,100000), np.random.randint(0,12345), np.random.randint(0,12345),np.random.randint(0,12345)], psis=[1,0.9, 0.7, 0.5, 0, -0.5, -1], labels_exist = True)
+        os.makedirs(results_dir, exist_ok=True)
+        draw_truncation_trick_figure(os.path.join(results_dir, 'truncation-trick.png'), load_Gs(model_place), w=128, h=128, seeds=[np.random.randint(0,100000),np.random.randint(0,100000), np.random.randint(0,100000), np.random.randint(0,100000), np.random.randint(0,12345), np.random.randint(0,12345),np.random.randint(0,12345)], psis=[1,0.9, 0.7, 0.5, 0, -0.5, -1], labels_exist = True)
