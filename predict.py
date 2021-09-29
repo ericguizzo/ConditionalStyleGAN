@@ -1,12 +1,15 @@
 import json
 import tempfile
 from pathlib import Path
-import shutil
 
 import cog
-from crepe.core import *
-import crepe
-from scipy.io import wavfile
+import os
+import pickle
+import numpy as np
+import PIL.Image
+import dnnlib
+import dnnlib.tflib as tflib
+import config
 
 class Predictor(cog.Predictor):
     def setup(self):

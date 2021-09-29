@@ -3,4 +3,5 @@ build:
   gpu: true
   python_packages:
     - tensorflow==1.15.2
+    - dnn==123.3.3
 predict: "predict.py:Predictor"
