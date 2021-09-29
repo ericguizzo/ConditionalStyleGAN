@@ -2,6 +2,6 @@ build:
   python_version: "3.7"
   gpu: true
   python_packages:
-    - tensorflow-gpu==1.9.0
+    - tensorflow-gpu==2.6.0
     - dnn==0.7.3.4
 predict: "predict.py:Predictor"
