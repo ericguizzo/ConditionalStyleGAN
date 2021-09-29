@@ -28,7 +28,7 @@ class Predictor(cog.Predictor):
             rnd = np.random.RandomState(None)
             latents = rnd.randn(1, Gs.input_shape[1])
             fmt = dict(func=tflib.convert_images_to_uint8, nchw_to_nhwc=True)
-            images = Gs.run(latents, None, truncation_psi=0.6, randomize_noise=True, output_transform=fmt, allow_soft_placement=True, log_device_placement=True))
+            images = Gs.run(latents, None, truncation_psi=0.6, randomize_noise=True, output_transform=fmt, allow_soft_placement=True, log_device_placement=True)
             os.makedirs(result_dir, exist_ok=True)
             png_filename = os.path.join(result_dir, 'example-'+str(i)+'.png')
             PIL.Image.fromarray(images[0], 'RGB').save(png_filename)
