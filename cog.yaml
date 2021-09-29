@@ -1,0 +1,6 @@
+build:
+  python_version: "3.7"
+  gpu: true
+  python_packages:
+    - tensorflow==1.15.2
+predict: "predict.py:Predictor"
