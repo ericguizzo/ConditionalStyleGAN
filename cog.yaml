@@ -1,6 +1,6 @@
 build:
   python_version: "3.7"
-  gpu: true
+  gpu: false
   python_packages:
     - tensorflow-gpu==1.15.2
     - dnn==0.7.3.4
