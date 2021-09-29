@@ -1,5 +1,5 @@
 build:
-  python_version: "3.8"
+  python_version: "3.7"
   gpu: true
   python_packages:
     - tensorflow-gpu==1.9.0
