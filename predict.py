@@ -14,8 +14,20 @@ import config
 class Predictor(cog.Predictor):
     def setup(self):
         """Load the model"""
+        tflib.init_tf()
+        _G, _D, Gs = pickle.load(open("results/00001-sgan-logos-1gpu/network-snapshot-002364.pkl", "rb"))
+        Gs.print_layers()
+        self.Gs = Gs
 
     #@cog.input("input", type=Path, help="Audio file")
     def predict(self):
-        """Compute f0 plot"""
-        print ("heeey")
+        """Compute prediction"""
+        results_dir = "prova"
+        for i in range(0,25):
+            rnd = np.random.RandomState(None)
+            latents = rnd.randn(1, self.Gs.input_shape[1])
+            fmt = dict(func=tflib.convert_images_to_uint8, nchw_to_nhwc=True)
+            images = self.Gs.run(latents, None, truncation_psi=0.6, randomize_noise=True, output_transform=fmt)
+            os.makedirs(result_dir, exist_ok=True)
+            png_filename = os.path.join(result_dir, 'example-'+str(i)+'.png')
+            PIL.Image.fromarray(images[0], 'RGB').save(png_filename)
