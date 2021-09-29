@@ -10,6 +10,7 @@ import PIL.Image
 import dnnlib
 import dnnlib.tflib as tflib
 import config
+from generate_figures import *
 
 class Predictor(cog.Predictor):
     def setup(self):
