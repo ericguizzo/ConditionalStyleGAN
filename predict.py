@@ -14,14 +14,15 @@ import config
 class Predictor(cog.Predictor):
     def setup(self):
         """Load the model"""
-        tflib.init_tf()
-        _G, _D, Gs = pickle.load(open("pretrained_models/network-snapshot-020400.pkl", "rb"))
-        Gs.print_layers()
-        self.Gs = Gs
+
 
     #@cog.input("input", type=Path, help="Audio file")
     def predict(self):
         """Compute prediction"""
+        tflib.init_tf()
+        _G, _D, Gs = pickle.load(open("pretrained_models/network-snapshot-020400.pkl", "rb"))
+        Gs.print_layers()
+        self.Gs = Gs
         results_dir = "prova"
         for i in range(0,25):
             rnd = np.random.RandomState(None)
