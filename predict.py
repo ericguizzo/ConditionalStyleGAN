@@ -15,7 +15,7 @@ class Predictor(cog.Predictor):
     def setup(self):
         """Load the model"""
         tflib.init_tf()
-        _G, _D, Gs = pickle.load(open("results/00001-sgan-logos-1gpu/network-snapshot-002364.pkl", "rb"))
+        _G, _D, Gs = pickle.load(open("pretrained_models/network-snapshot-020400.pkl", "rb"))
         Gs.print_layers()
         self.Gs = Gs
 
